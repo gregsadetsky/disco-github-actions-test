@@ -45,3 +45,13 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Deploy to server
+        if: github.event_name != 'pull_request'
+        run: |
+          curl -X POST \
+            -u "${{ secrets.DISCO_API_KEY }}:" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            -d '{}' \
+            https://srv-1b23538387664837.ondis.co/api/projects/github-actions-image-test/deployments
