@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-LABEL org.opencontainers.image.source="https://github.com/OWNER/REPO"
+LABEL org.opencontainers.image.source="https://github.com/gregsadetsky/disco-github-actions-test"
 
 WORKDIR /app
 
